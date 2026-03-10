@@ -144,11 +144,9 @@ D --> E[SMTP Email Sender<br>Gmail App Password]
 
 ---
 
-# 📁 Project Structure
+## 📁 Project Structure
 
-```markdown
-> This project follows a simple modular architecture separating frontend UI, backend API, and background worker processes for scalable email automation.
-```
+
 MailForge
 │
 ├── backend
@@ -172,7 +170,6 @@ MailForge
 ├── requirements.txt
 │
 └── start.sh
-
 ---
 
 # ⚙️ How It Works
