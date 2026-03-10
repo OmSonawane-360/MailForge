@@ -144,8 +144,8 @@ D --> E[SMTP Email Sender<br>Gmail App Password]
 
 ---
 
-## 📁 Project Structure
-
+# 📁 Project Structure
+```
 
 MailForge
 │
@@ -170,6 +170,7 @@ MailForge
 ├── requirements.txt
 │
 └── start.sh
+```
 ---
 
 # ⚙️ How It Works
