@@ -1,3 +1,9 @@
+
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Render](https://img.shields.io/badge/Deployment-Render-purple)
+![License](https://img.shields.io/badge/Project-Type%20Portfolio-orange)
+
 # 🚀 MailForge — Automated HR Outreach Platform
 
 MailForge is a full-stack automation tool designed to solve a real problem faced by job seekers: **sending personalized cold emails to hundreds or thousands of HR contacts efficiently**.
@@ -249,6 +255,35 @@ Planned features include:
 
 ---
 
+# How to Run Locally
+
+## ⚙️ Run Locally
+```
+Clone the repository
+
+git clone https://github.com/OmSonawane-360/MailForge.git
+
+Go into the project directory
+
+cd MailForge
+
+Create virtual environment
+
+python -m venv venv
+
+Activate environment
+
+venv\Scripts\activate
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Start backend server
+
+uvicorn backend.main:app --reload
+```
+---
 # 👨‍💻 Author
 
 **Om Sonawane**
@@ -261,11 +296,7 @@ using modern technologies like Python, React, and Generative AI.
 
 📱 Phone  
 +91 9373156213
-[📧 Email ](mailto:omsonawane.660@gmail.com)
 
-[🔗 LinkedIn  ](https://www.linkedin.com/in/om-sonawane360)
-
-[💻 GitHub ](https://github.com/OmSonawane-360)
 
 📧 **Email:** [omsonawane.660@gmail.com](mailto:omsonawane.660@gmail.com)  
 💻 **GitHub:** [OmSonawane-360](https://github.com/OmSonawane-360)  
