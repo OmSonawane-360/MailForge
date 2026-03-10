@@ -107,7 +107,27 @@ Accessible online via browser.
 
 # 🏗 System Architecture
 
+Frontend (Static Site)
+https://mailforge-ui.onrender.com
 
+│
+│ REST API
+▼
+FastAPI Backend
+https://mailforge.onrender.com
+
+│
+│
+▼
+SQLite Database
+│
+│
+▼
+Email Worker Queue
+│
+│
+▼
+SMTP (Gmail App Password)
 ---
 
 # 🛠 Tech Stack
@@ -136,3 +156,95 @@ Accessible online via browser.
 
 # 📁 Project Structure
 
+---
+
+# ⚙️ How It Works
+
+### Step 1 — Upload PDF
+Users upload a PDF containing HR contact information.
+
+### Step 2 — Extract Contacts
+The system extracts structured contact data from the document.
+
+### Step 3 — Create Campaign
+Emails are stored inside a campaign.
+
+### Step 4 — Email Processing
+Background worker sends emails sequentially.
+
+### Step 5 — Dashboard Updates
+Campaign statistics update in real time.
+
+---
+
+# 🚀 Deployment
+
+MailForge is deployed using **Render**.
+
+### Backend Deployment
+
+### Frontend Deployment
+
+---
+
+# ⚠️ Challenges Faced During Development
+
+Building MailForge involved solving multiple technical challenges:
+
+### Parsing structured data from PDFs
+Extracting tabular contact data reliably required experimenting with PDF parsing tools.
+
+### Handling large email lists
+Managing thousands of emails required a proper queue system.
+
+### Gmail spam protection
+To prevent Gmail from blocking the account, delays and rate limits were implemented.
+
+### Background processing
+Campaigns needed to run in the background while updating progress on the dashboard.
+
+### Deployment complexity
+Separating frontend and backend deployments required careful configuration.
+
+---
+
+# 📈 Future Improvements
+
+Planned features include:
+
+- Email open tracking
+- Recruiter reply detection
+- LinkedIn profile integration
+- AI-generated personalized emails
+- CSV contact uploads
+- Multi-user authentication
+- Email scheduling
+- Campaign analytics dashboard
+
+---
+
+# 👨‍💻 Author
+
+**Om Sonawane**
+
+Aspiring AI Engineer & Software Developer passionate about building intelligent tools, automation systems, and scalable web applications.
+
+📍 Pune, Maharashtra, India
+
+📧 Email  
+omsonawane.660@gmail.com
+
+📱 Phone  
++91 9373156213
+
+🔗 LinkedIn  
+https://www.linkedin.com/in/om-sonawane360
+
+💻 GitHub  
+https://github.com/OmSonawane-360
+
+---
+
+# ⭐ If you found this project interesting
+
+Consider giving the repository a **star** ⭐
