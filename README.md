@@ -146,6 +146,33 @@ D --> E[SMTP Email Sender<br>Gmail App Password]
 
 # 📁 Project Structure
 
+```markdown
+> This project follows a simple modular architecture separating frontend UI, backend API, and background worker processes for scalable email automation.
+```
+MailForge
+│
+├── backend
+│ ├── main.py
+│ ├── models.py
+│ ├── database.py
+│ ├── email_sender.py
+│ ├── pdf_parser.py
+│ ├── validator.py
+│ └── queue_worker.py
+│
+├── frontend
+│ ├── index.html
+│ ├── dashboard.html
+│ ├── campaigns.html
+│ └── assets
+│ └── favicon.png
+│
+├── uploads
+│
+├── requirements.txt
+│
+└── start.sh
+
 ---
 
 # ⚙️ How It Works
@@ -172,9 +199,13 @@ Campaign statistics update in real time.
 MailForge is deployed using **Render**.
 
 ### Backend Deployment
-
+Runtime: Python
+Build Command: pip install -r requirements.txt
+Start Command: bash start.sh
 ### Frontend Deployment
-
+Static Site
+Root Directory: frontend
+Publish Directory: .
 ---
 
 # ⚠️ Challenges Faced During Development
