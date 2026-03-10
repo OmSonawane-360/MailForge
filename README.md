@@ -171,6 +171,9 @@ MailForge
 │
 └── start.sh
 ```
+
+> This project follows a simple modular architecture separating **frontend UI**, **backend API**, and **background email worker processing**.
+
 ---
 
 # ⚙️ How It Works
@@ -197,13 +200,17 @@ Campaign statistics update in real time.
 MailForge is deployed using **Render**.
 
 ### Backend Deployment
+```
 Runtime: Python
 Build Command: pip install -r requirements.txt
 Start Command: bash start.sh
+```
 ### Frontend Deployment
+```
 Static Site
 Root Directory: frontend
 Publish Directory: .
+```
 ---
 
 # ⚠️ Challenges Faced During Development
