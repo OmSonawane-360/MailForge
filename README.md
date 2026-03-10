@@ -105,29 +105,19 @@ Accessible online via browser.
 
 ---
 
-# 🏗 System Architecture
+## 🏗 System Architecture
 
-Frontend (Static Site)
-https://mailforge-ui.onrender.com
+```mermaid
+flowchart TD
 
-│
-│ REST API
-▼
-FastAPI Backend
-https://mailforge.onrender.com
+A[Frontend UI<br>mailforge-ui.onrender.com] --> B[FastAPI Backend API<br>mailforge.onrender.com]
 
-│
-│
-▼
-SQLite Database
-│
-│
-▼
-Email Worker Queue
-│
-│
-▼
-SMTP (Gmail App Password)
+B --> C[SQLite Database]
+
+B --> D[Email Worker Queue]
+
+D --> E[SMTP Email Sender<br>Gmail App Password]
+```
 ---
 
 # 🛠 Tech Stack
