@@ -259,17 +259,13 @@ using modern technologies like Python, React, and Generative AI.
 
 📍 Pune, Maharashtra, India
 
-📧 Email  
-[omsonawane.660@gmail.com](mailto:omsonawane.660@gmail.com)
-
 📱 Phone  
 +91 9373156213
+[📧 Email ](mailto:omsonawane.660@gmail.com)
 
-🔗 LinkedIn  
-[View LinkedIn Profile](https://www.linkedin.com/in/om-sonawane360)
+[🔗 LinkedIn  ](https://www.linkedin.com/in/om-sonawane360)
 
-💻 GitHub  
-[View GitHub Profile](https://github.com/OmSonawane-360)
+[💻 GitHub ](https://github.com/OmSonawane-360)
 
 📧 **Email:** [omsonawane.660@gmail.com](mailto:omsonawane.660@gmail.com)  
 💻 **GitHub:** [OmSonawane-360](https://github.com/OmSonawane-360)  
