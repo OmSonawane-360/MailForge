@@ -284,6 +284,12 @@ Start backend server
 uvicorn backend.main:app --reload
 ```
 ---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+---
+
 # 👨‍💻 Author
 
 **Om Sonawane**
