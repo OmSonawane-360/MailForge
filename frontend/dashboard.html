@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MailForge Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body{
+font-family: ui-sans-serif, system-ui;
+}
+</style>
+
+</head>
+
+<body class="bg-gray-950 text-gray-200">
+
+<!-- Navbar -->
+
+<nav class="bg-gray-900 border-b border-gray-800">
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<h1 class="text-xl font-bold text-white">
+🚀 MailForge
+</h1>
+
+<div class="space-x-6 text-gray-300">
+<a href="index.html" class="hover:text-white">Create Campaign</a>
+<a href="campaigns.html" class="hover:text-white">Campaigns</a>
+<a href="dashboard.html" class="hover:text-white">Dashboard</a>
+</div>
+
+</div>
+</nav>
+
+
+<div class="max-w-3xl mx-auto mt-12 px-6">
+
+<h1 class="text-3xl font-bold mb-8 text-center text-white">
+Campaign Dashboard
+</h1>
+
+
+<!-- Campaign Section -->
+
+<div class="bg-gray-900 p-6 rounded-xl shadow-lg mb-6">
+
+<h2 class="text-xl mb-4 font-semibold">Campaign</h2>
+
+<input
+id="campaignId"
+class="w-full bg-gray-800 p-3 rounded mb-4"
+placeholder="Enter Campaign ID"
+/>
+
+<button
+onclick="loadStats()"
+class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+Load Campaign
+</button>
+
+</div>
+
+
+<!-- Gmail Credentials -->
+
+<div class="bg-gray-900 p-6 rounded-xl shadow-lg mb-6">
+
+<h2 class="text-xl mb-4 font-semibold">Gmail Credentials</h2>
+
+<input
+id="senderEmail"
+class="w-full bg-gray-800 p-3 rounded mb-4"
+placeholder="Sender Gmail"
+/>
+
+<input
+id="appPassword"
+type="password"
+class="w-full bg-gray-800 p-3 rounded"
+placeholder="Gmail App Password"
+/>
+
+</div>
+
+
+<!-- Resume Upload -->
+
+<div class="bg-gray-900 p-6 rounded-xl shadow-lg mb-6">
+
+<h2 class="text-xl mb-4 font-semibold">Resume</h2>
+
+<input type="file" id="resumeFile" class="mb-4"/>
+
+<button
+onclick="uploadResume()"
+class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">
+Upload Resume
+</button>
+
+</div>
+
+
+<!-- Email Template -->
+
+<div class="bg-gray-900 p-6 rounded-xl shadow-lg mb-6">
+
+<h2 class="text-xl mb-4 font-semibold">Email Template</h2>
+
+<textarea
+id="emailBody"
+rows="10"
+class="w-full bg-gray-800 p-3 rounded"
+placeholder="Write your email template here...">
+</textarea>
+
+</div>
+
+
+<!-- Campaign Analytics -->
+
+<div class="bg-gray-900 p-6 rounded-xl shadow-lg mb-6">
+
+<h2 class="text-xl mb-4 font-semibold">Campaign Analytics</h2>
+
+<div class="grid grid-cols-2 gap-4 mb-6">
+
+<div class="bg-gray-800 p-4 rounded">
+<p class="text-gray-400 text-sm">Total Emails</p>
+<p id="total" class="text-2xl font-bold">--</p>
+</div>
+
+<div class="bg-green-900 p-4 rounded">
+<p class="text-green-300 text-sm">Sent</p>
+<p id="sent" class="text-2xl font-bold">--</p>
+</div>
+
+<div class="bg-yellow-900 p-4 rounded">
+<p class="text-yellow-300 text-sm">Pending</p>
+<p id="pending" class="text-2xl font-bold">--</p>
+</div>
+
+<div class="bg-red-900 p-4 rounded">
+<p class="text-red-300 text-sm">Failed</p>
+<p id="failed" class="text-2xl font-bold">--</p>
+</div>
+
+</div>
+
+<div class="mt-4 bg-gray-800 rounded h-4">
+<div id="progress" class="bg-green-500 h-4 rounded transition-all duration-700" style="width:0%"></div>
+</div>
+
+</div>
+
+
+<!-- Campaign Controls -->
+
+<div class="flex gap-4 justify-center mb-12">
+
+<button onclick="startCampaign()" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded">
+Start Campaign
+</button>
+
+<button onclick="pauseCampaign()" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded">
+Pause Campaign
+</button>
+
+</div>
+
+</div>
+
+
+<!-- Footer -->
+
+<footer class="bg-gray-900 border-t border-gray-800 mt-20">
+<div class="max-w-5xl mx-auto px-6 py-10 text-center">
+
+<p class="text-white font-semibold mb-3">
+Built and maintained by Om Sonawane
+</p>
+
+<p class="text-gray-400 text-sm max-w-2xl mx-auto mb-6">
+Aspiring AI Engineer & Software Developer passionate about building 
+LLM-powered applications, scalable web systems, and intelligent tools 
+using modern technologies like Python, React, and Generative AI.
+</p>
+
+<p class="text-gray-400 mb-4">
+📍 Pune, Maharashtra, India
+</p>
+
+<div class="text-gray-400 text-sm mb-6">
+<p>Email: omsonawane.660@gmail.com</p>
+<p>Phone: +91 9373156213</p>
+</div>
+
+<div class="flex justify-center space-x-6">
+<a href="https://github.com/OmSonawane-360" target="_blank" class="hover:text-white">GitHub</a>
+<a href="https://www.linkedin.com/in/om-sonawane360/" target="_blank" class="hover:text-white">LinkedIn</a>
+</div>
+
+</div>
+</footer>
+
+
+<script>
+
+const API_URL = "http://127.0.0.1:8000"
+
+let currentCampaign = null
+
+
+// Auto load campaign from URL
+window.onload = () => {
+
+const params = new URLSearchParams(window.location.search)
+const campaignFromURL = params.get("campaign")
+
+if(campaignFromURL){
+document.getElementById("campaignId").value = campaignFromURL
+currentCampaign = campaignFromURL
+loadStats()
+}
+
+}
+
+
+async function loadStats(){
+
+const id = document.getElementById("campaignId").value
+currentCampaign = id
+
+updateStats()
+
+setInterval(updateStats,5000)
+
+}
+
+
+async function updateStats(){
+
+const response = await fetch(API_URL + "/campaign-stats/" + currentCampaign)
+
+const data = await response.json()
+
+document.getElementById("total").innerText = data.total
+document.getElementById("sent").innerText = data.sent
+document.getElementById("pending").innerText = data.pending
+document.getElementById("failed").innerText = data.failed
+
+let percent = (data.sent / data.total) * 100
+
+document.getElementById("progress").style.width = percent + "%"
+
+}
+
+
+async function uploadResume(){
+
+const file = document.getElementById("resumeFile").files[0]
+
+const formData = new FormData()
+
+formData.append("file", file)
+
+await fetch(API_URL + "/upload-resume",{
+method:"POST",
+body:formData
+})
+
+alert("Resume uploaded successfully")
+
+}
+
+
+async function startCampaign(){
+
+const id = currentCampaign
+
+const body = document.getElementById("emailBody").value
+
+const senderEmail = document.getElementById("senderEmail").value
+
+const appPassword = document.getElementById("appPassword").value
+
+await fetch(API_URL + "/start-campaign/" + id,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+sender_email: senderEmail,
+app_password: appPassword,
+subject:"Software Engineer Opportunities",
+body: body
+})
+})
+
+alert("Campaign started")
+
+}
+
+
+async function pauseCampaign(){
+
+const id = currentCampaign
+
+await fetch(API_URL + "/pause-campaign/" + id,{
+method:"POST"
+})
+
+alert("Campaign paused")
+
+}
+
+</script>
+
+</body>
+</html>

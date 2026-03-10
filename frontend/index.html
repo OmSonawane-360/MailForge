@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>MailForge</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<body class="bg-gray-950 text-gray-200">
+
+<!-- Navbar -->
+
+<nav class="bg-gray-900 border-b border-gray-800">
+<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<h1 class="text-xl font-bold text-white">
+🚀 MailForge
+</h1>
+
+<div class="space-x-6 text-gray-300">
+
+<a href="index.html" class="hover:text-white">
+Create Campaign
+</a>
+
+<a href="campaigns.html" class="hover:text-white">
+Campaigns
+</a>
+
+<a href="dashboard.html" class="hover:text-white">
+Dashboard
+</a>
+
+</div>
+
+</div>
+</nav>
+
+
+<!-- Campaign Creator -->
+
+<div class="flex items-center justify-center min-h-[70vh]">
+
+<div class="bg-gray-900 p-8 rounded-xl w-96 shadow-xl">
+
+<h1 class="text-3xl font-bold mb-6 text-center text-white">
+🚀 MailForge
+</h1>
+
+<p class="text-gray-400 text-sm text-center mb-6">
+Create a new outreach campaign
+</p>
+
+<input
+id="campaignName"
+type="text"
+placeholder="Campaign Name"
+class="w-full p-3 mb-4 rounded bg-gray-800"
+/>
+
+<input
+id="pdfFile"
+type="file"
+class="w-full mb-4"
+/>
+
+<button
+onclick="createCampaign()"
+class="w-full bg-blue-600 p-3 rounded hover:bg-blue-700"
+>
+Create Campaign
+</button>
+
+<p id="result" class="mt-4 text-sm text-green-400"></p>
+
+<div class="mt-6 text-center">
+
+<a
+href="campaigns.html"
+class="text-blue-400 hover:underline"
+>
+View All Campaigns
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Footer -->
+
+<footer class="bg-gray-900 border-t border-gray-800 mt-20">
+
+<div class="max-w-5xl mx-auto px-6 py-10 text-center">
+
+<p class="text-white font-semibold mb-3">
+Built and maintained by Om Sonawane
+</p>
+
+<p class="text-gray-400 text-sm max-w-2xl mx-auto mb-6">
+
+Aspiring AI Engineer & Software Developer passionate about building 
+LLM-powered applications, scalable web systems, and intelligent tools 
+using modern technologies like Python, React, and Generative AI.
+
+</p>
+
+<p class="text-gray-400 mb-4">
+📍 Pune, Maharashtra, India
+</p>
+
+<div class="text-gray-400 text-sm mb-6">
+
+<p>Email: omsonawane.660@gmail.com</p>
+<p>Phone: +91 9373156213</p>
+
+</div>
+
+
+<!-- Social Links -->
+
+<div class="flex justify-center space-x-8 text-2xl mt-4">
+
+<a href="https://github.com/OmSonawane-360"
+target="_blank"
+class="text-gray-400 hover:text-white transition">
+
+<i class="fa-brands fa-github"></i>
+
+</a>
+
+
+<a href="https://www.linkedin.com/in/om-sonawane360/"
+target="_blank"
+class="text-gray-400 hover:text-blue-500 transition">
+
+<i class="fa-brands fa-linkedin"></i>
+
+</a>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+const API_URL = "http://127.0.0.1:8000"
+
+async function createCampaign(){
+
+const name = document.getElementById("campaignName").value
+const file = document.getElementById("pdfFile").files[0]
+
+if(!name || !file){
+alert("Please enter campaign name and upload PDF")
+return
+}
+
+const formData = new FormData()
+formData.append("name", name)
+formData.append("file", file)
+
+const response = await fetch(
+API_URL + "/create-campaign?name=" + name,
+{
+method:"POST",
+body:formData
+})
+
+const data = await response.json()
+
+document.getElementById("result").innerText =
+"Campaign Created! ID: " + data.campaign_id
+
+}
+
+</script>
+
+</body>
+</html>
