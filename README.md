@@ -106,3 +106,33 @@ Accessible online via browser.
 ---
 
 # 🏗 System Architecture
+
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
+- Python
+- FastAPI
+- SQLAlchemy
+- SQLite
+- SMTP Email Integration
+- Background Worker System
+
+## Frontend
+
+- HTML
+- TailwindCSS
+- JavaScript
+
+## Deployment
+
+- Render (Backend Web Service)
+- Render (Static Frontend Hosting)
+
+---
+
+# 📁 Project Structure
+
