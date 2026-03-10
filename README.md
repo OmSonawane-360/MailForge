@@ -253,21 +253,27 @@ Planned features include:
 
 **Om Sonawane**
 
-Aspiring AI Engineer & Software Developer passionate about building intelligent tools, automation systems, and scalable web applications.
+Aspiring AI Engineer & Software Developer passionate about building 
+LLM-powered applications, scalable web systems, and intelligent tools 
+using modern technologies like Python, React, and Generative AI.
 
 📍 Pune, Maharashtra, India
 
 📧 Email  
-omsonawane.660@gmail.com
+[omsonawane.660@gmail.com](mailto:omsonawane.660@gmail.com)
 
 📱 Phone  
 +91 9373156213
 
 🔗 LinkedIn  
-https://www.linkedin.com/in/om-sonawane360
+[View LinkedIn Profile](https://www.linkedin.com/in/om-sonawane360)
 
 💻 GitHub  
-https://github.com/OmSonawane-360
+[View GitHub Profile](https://github.com/OmSonawane-360)
+
+📧 **Email:** [omsonawane.660@gmail.com](mailto:omsonawane.660@gmail.com)  
+💻 **GitHub:** [OmSonawane-360](https://github.com/OmSonawane-360)  
+🔗 **LinkedIn:** [Om Sonawane](https://www.linkedin.com/in/om-sonawane360)
 
 ---
 
