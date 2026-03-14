@@ -42,6 +42,8 @@ def home():
 # Upload PDF and preview contacts
 @app.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
+    import os
+    os.makedirs("uploads", exist_ok=True)
 
     file_path = f"uploads/{file.filename}"
 
@@ -55,14 +57,17 @@ async def upload_pdf(file: UploadFile = File(...)):
         "sample": contacts[:5]
     }
 
-
-# Create campaign
+#
 @app.post("/create-campaign")
 async def create_campaign(
     name: str,
     file: UploadFile = File(...),
     db: Session = Depends(get_db)
 ):
+    import os
+
+    # ⭐ ensure uploads folder exists (VERY IMPORTANT for Render)
+    os.makedirs("uploads", exist_ok=True)
 
     file_path = f"uploads/{file.filename}"
 
