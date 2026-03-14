@@ -1,10 +1,15 @@
 import time
 import threading
 import shutil
+import os  
+
 
 from fastapi import FastAPI, UploadFile, File, Depends
 from fastapi.middleware.cors import CORSMiddleware
+
+os.makedirs("uploads", exist_ok=True)   
 from sqlalchemy.orm import Session
+
 
 from backend.scheduler import scheduler
 from backend.queue_worker import run_campaign
