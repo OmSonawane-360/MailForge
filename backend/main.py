@@ -1,12 +1,12 @@
 import time
 import threading
-import shutil 
+import shutil
 
-from fastapi.middleware.cors import CORSMiddleware
-from backend.scheduler import scheduler
 from fastapi import FastAPI, UploadFile, File, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
+from backend.scheduler import scheduler
 from backend.queue_worker import run_campaign
 from backend.pdf_parser import extract_contacts_from_pdf
 from backend.database import engine, get_db
@@ -14,14 +14,16 @@ from backend.models import Base, Campaign, Email
 from backend.email_sender import send_email
 
 
+# create tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="MailForge API")
 
+# ✅ CORS FIX (FINAL)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=["*"],   # allow all for now
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -49,7 +51,7 @@ async def upload_pdf(file: UploadFile = File(...)):
     }
 
 
-# Create campaign and store contacts
+# Create campaign
 @app.post("/create-campaign")
 async def create_campaign(
     name: str,
@@ -74,7 +76,6 @@ async def create_campaign(
     db.refresh(campaign)
 
     for contact in contacts:
-
         email_record = Email(
             campaign_id=campaign.id,
             email=contact["email"],
@@ -82,7 +83,6 @@ async def create_campaign(
             company=contact["company"],
             title=contact["title"]
         )
-
         db.add(email_record)
 
     db.commit()
@@ -129,7 +129,6 @@ def send_campaign(
             email.status = "failed"
 
         db.commit()
-
         time.sleep(60)
 
     return {
@@ -138,7 +137,7 @@ def send_campaign(
     }
 
 
-# Start campaign in background
+# Start campaign background
 @app.post("/start-campaign/{campaign_id}")
 def start_campaign(
     campaign_id: int,
@@ -165,7 +164,6 @@ def pause_campaign(campaign_id: int, db: Session = Depends(get_db)):
     campaign = db.query(Campaign).filter(Campaign.id == campaign_id).first()
 
     campaign.status = "paused"
-
     db.commit()
 
     return {"message": "Campaign paused"}
@@ -178,17 +176,14 @@ def campaign_stats(campaign_id: int, db: Session = Depends(get_db)):
     campaign = db.query(Campaign).filter(Campaign.id == campaign_id).first()
 
     total = db.query(Email).filter(Email.campaign_id == campaign_id).count()
-
     sent = db.query(Email).filter(
         Email.campaign_id == campaign_id,
         Email.status == "sent"
     ).count()
-
     failed = db.query(Email).filter(
         Email.campaign_id == campaign_id,
         Email.status == "failed"
     ).count()
-
     pending = db.query(Email).filter(
         Email.campaign_id == campaign_id,
         Email.status == "pending"
@@ -203,6 +198,8 @@ def campaign_stats(campaign_id: int, db: Session = Depends(get_db)):
         "pending": pending
     }
 
+
+# Upload resume
 @app.post("/upload-resume")
 async def upload_resume(file: UploadFile = File(...)):
 
@@ -211,8 +208,10 @@ async def upload_resume(file: UploadFile = File(...)):
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    return {"message": "Resume uploaded successfully"}    
+    return {"message": "Resume uploaded successfully"}
 
+
+# List campaigns
 @app.get("/campaigns")
 def list_campaigns(db: Session = Depends(get_db)):
 
