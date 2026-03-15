@@ -11,7 +11,7 @@ os.makedirs("uploads", exist_ok=True)
 from sqlalchemy.orm import Session
 
 
-from backend.scheduler import scheduler
+# from backend.scheduler import scheduler
 from backend.queue_worker import run_campaign
 from backend.pdf_parser import extract_contacts_from_pdf
 from backend.database import engine, get_db
@@ -212,6 +212,9 @@ def campaign_stats(campaign_id: int, db: Session = Depends(get_db)):
 # Upload resume
 @app.post("/upload-resume")
 async def upload_resume(file: UploadFile = File(...)):
+
+    import os
+    os.makedirs("uploads", exist_ok=True)   # ⭐ ADD THIS LINE
 
     file_path = "uploads/resume.pdf"
 
