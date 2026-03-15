@@ -285,22 +285,20 @@ const senderEmail = document.getElementById("senderEmail").value
 
 const appPassword = document.getElementById("appPassword").value
 
-await fetch(API_URL + "/start-campaign/" + id,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-sender_email: senderEmail,
-app_password: appPassword,
-subject:"Software Engineer Opportunities",
-body: body
-})
+await fetch(
+API_URL + "/start-campaign/" + id +
+"?sender_email=" + encodeURIComponent(senderEmail) +
+"&app_password=" + encodeURIComponent(appPassword) +
+"&subject=" + encodeURIComponent("Software & AI Engineering Opportunities") +
+"&body=" + encodeURIComponent(body),
+{
+method:"POST"
 })
 
 alert("Campaign started")
 
 }
+
 
 
 async function pauseCampaign(){
