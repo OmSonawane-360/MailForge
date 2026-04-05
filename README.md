@@ -2,7 +2,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
 ![Render](https://img.shields.io/badge/Deployment-Render-purple)
-![License](https://img.shields.io/badge/Project-Type%20Portfolio-orange)  
+![License](https://img.shields.io/badge/Project-Type%20Portfolio-orange)   
  
 # 🚀 MailForge — Automated HR Outreach Platform 
 
